@@ -1,12 +1,7 @@
 写在前面的话
 
 ```
-	每当我们准备开始写项目的时候，可能会为构建各种工具类而头痛，不复杂却也繁琐，在这样的背景下，Java工具类库诞生了。
-	
-	我们致力于构建一款强大的java工具类库，目的是让你在写项目的时候，可以参考或者直接引入。
-	这里可能会有你分享的方法，在此表示感谢。如果可能，请联系我，加上原作者信息。
-	
-	另外，作者是一个Java新手，不足之处，还请指正。
+	作者是一个Java新手，不足之处，还请指正。
 ```
 
 # JavaLib 使用指南
@@ -29,7 +24,8 @@
 |RSAUtil                   | RSA非对称加密算法工具类|
 |IReturnCode               | 返回码接口|
 |Result                    | 接口返回数据封装类|
-
+|SafeUtil                  | 安全工具类|
+|HexUtil                   | 进制转换工具|
 
 ## 引入
 
@@ -52,11 +48,37 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.fengwenyi</groupId>
 	    <artifactId>JavaLib</artifactId>
-	    <version>171224.17</version>
+	    <version>0.0.1</version>
 	</dependency>
 ```
 
-温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/171224.17
+温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.1
+
+作者当前开发环境为 `Java 9` ，String Boot 版本为 `2.0.0 M7`，在demo_javalib中 `pom.xml` 添加如下代码
+```
+	<dependencies>
+		...
+
+		<dependency>
+			<groupId>com.github.fengwenyi</groupId>
+			<artifactId>JavaLib</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+
+		...
+	</repositories>
+```
+
+## API
+
+点击查看[API文档](https://github.com/fengwenyi/JavaLib/blob/master/API.md)
 
 ## 依赖
 
@@ -69,6 +91,14 @@ Step 2. Add the dependency
 
 
 ## 版本更新说明
+
+● 第 18 版【日期：2018年1月3日，版本号：0.0.1】
+
+```
+	1、由于版本号的原因，删掉之前项目，重现建
+	2、增加SafeUtil安全工具类，提供了加密方法
+	3、增加了HexUtil进制转换工具类
+```
 
 ● 第 17 版【时间：2017年12月24日，版本号：171224.17】
 
@@ -135,5 +165,5 @@ Step 2. Add the dependency
 ## 关于我
 
 ```
-	 ©2017 Wenyi Feng.
+	 ©2017-2018 Wenyi Feng.
 ```
