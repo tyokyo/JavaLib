@@ -315,3 +315,14 @@
 
 # 15、HexUtil
 * _2_16(byte[] bytes)   二进制转十六进制
+
+# 16、TimeUtil
+* longTime(String time) 距离现在多久，语义化
+```
+参数：格式(yyyy-MM-dd HH:mm:ss)
+```
+
+* longTime(long time) 距离现在多久，语义化
+```
+参数：格式(毫秒数)
+```

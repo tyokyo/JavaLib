@@ -26,6 +26,7 @@
 |Result                    | 接口返回数据封装类|
 |SafeUtil                  | 安全工具类|
 |HexUtil                   | 进制转换工具|
+|TimeUtil                  | 时间工具类|
 
 ## 引入
 
@@ -48,11 +49,11 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.fengwenyi</groupId>
 	    <artifactId>JavaLib</artifactId>
-	    <version>0.0.1</version>
+	    <version>0.0.2</version>
 	</dependency>
 ```
 
-温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.1
+温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.2
 
 作者当前开发环境为 `Java 9` ，String Boot 版本为 `2.0.0 M7`，在demo_javalib中 `pom.xml` 添加如下代码
 ```
@@ -91,6 +92,12 @@ Step 2. Add the dependency
 
 
 ## 版本更新说明
+
+● 第 19 版【日期：2018年1月4日，版本号：0.0.2】
+
+```
+	1、增加时间工具类
+```
 
 ● 第 18 版【日期：2018年1月3日，版本号：0.0.1】
 
