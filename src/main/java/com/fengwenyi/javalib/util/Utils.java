@@ -29,6 +29,8 @@ public class Utils {
      */
     public static String getUrlParamsByMap(Map<String, String> data) throws UnsupportedEncodingException {
 
+        if (data == null || data.isEmpty()) return null;
+
         StringBuilder sb = new StringBuilder();
 
         for (Map.Entry i : data.entrySet()) {
@@ -72,7 +74,7 @@ public class Utils {
      */
     public static JsonObject getIpInfo(String ip) throws IOException {
         String param = "?ip=" + ip;
-        String ipInfoStr = NetDataUtil.doGetByUrl(IP_INFO_URI + param);
+        String ipInfoStr = NetDataUtil.get(IP_INFO_URI + param, null, null);
         JsonObject ipInfoJsonObject = new JsonParser().parse(ipInfoStr).getAsJsonObject();
         return ipInfoJsonObject.get("data").getAsJsonObject();
     }

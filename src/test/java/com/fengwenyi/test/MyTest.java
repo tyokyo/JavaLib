@@ -1,16 +1,21 @@
 package com.fengwenyi.test;
 
+import com.fengwenyi.javalib.util.NetDataUtil;
 import com.fengwenyi.javalib.util.RSAUtil;
 import com.fengwenyi.javalib.util.SafeUtil;
+import com.fengwenyi.javalib.util.Utils;
 import org.junit.Test;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Wenyi Feng(xfsy_2015@163.com)
@@ -97,6 +102,32 @@ public class MyTest {
             String s = SafeUtil.MD5("xfsy");
             System.out.println(s);
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testNet() {
+        String url = "http://www.baidu.com";
+
+        String rs = null;
+        try {
+            rs = NetDataUtil.get(url, null, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(rs);
+
+    }
+
+    @Test
+    public void testPositionByIp() {
+        String ip = "223.85.223.128";
+        try {
+            String rs = Utils.getPosition(ip);
+            System.out.println(rs);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

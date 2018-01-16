@@ -2,26 +2,28 @@
 
 [TOC]
 
-# 1、SSLClient
+### 1、SSLClient
 
 	它不是工具类，我认为它只是一个对象类，一个Http(s) Client的对象类，拿到它，你就可以访问Http(s)。
 
 	这里我不准备对他做更多的说明，至于如何使用，你可以参见HttpsClientUtil的源码。之所以提供它，也是为了您可以实现自定义，来满足您的需求。
 
-# 2、Constant
+### 2、Constant
 
 	这是一个常量接口，可以直接调用。
 
 |名称                  |值      |说明|
 |:----                 |:---:   |:---|
 |DEFAULT_CHATSET       |UTF-8   |编码 |
-|DEFAULT_CONN_TIMEOUT  |5000    |连接超时（5s）|
-|DEFAULT_READ_TIMEOUT  |5000    |读取超时（5s）|
-|RequestMethodGet      |GET     |get方式请求数据 |
-|RequestMethodPost     |POST    |post方式请求数据|
+|DEFAULT_CONN_TIMEOUT  |1000 * 60    |连接超时（1分钟）|
+|DEFAULT_READ_TIMEOUT  |1000 \* 60 * 10    |读取超时（10分钟）|
+|RequestMethodGet      |GET     |Get方式请求数据 |
+|RequestMethodPost     |POST    |Post方式请求数据|
+|RequestMethodPut      |PUT     |Put方式请求数据 |
+|RequestMethodDelete     |DELETE    |Delete方式请求数据|
 |IP_INFO_URI           |[……]    |获取ip地址的信息的uri|
 
-# 3、FileUtil
+### 3、FileUtil
 
 	文件操作工具类。
 
@@ -38,7 +40,7 @@
 		IOException io异常
 ```
 
-# 4、HttpsClientUtil
+### 4、HttpsClientUtil
 
 	Http(s)工具类。
 
@@ -77,7 +79,7 @@
 	    IOException
 ```
 
-# 5、MathUtil
+### 5、MathUtil
 * randomNum(int range) 在[0, range)范围内产生一个随机数
 
 ```
@@ -97,86 +99,31 @@
 		[y, x]范围内的随机数
 ```
 
-# 6、NetDataUtil
-
-	网络请求工具类。
-
-	调用此类，你可以很方便的通过GET/POST方式将数据提交到URL，并获取返回数据。
-
-* doGetByUrl(String url) GET方式向URL提交数据并获取返回结果（常用）
+### 6、NetDataUtil
 
 ```
-	参数：
-		url		URL/url+param
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
+说明：
+	1、这是一个网络请求工具类，如果遇到需要访问URL获取数据，便可以使用。
+
+	2、支持Get、Pos、Put、Delete方式请求URL数据。
+
+	3、支持自定义Header。
+
+	4、如果你对自定义Header很模糊，可以参考源码提供的注释代码或搜索例子。
+
+	5、如果你不需要header或者param，均可以为（null）
+
 ```
 
-* doGetByUrl(String url, Map<String, String> param) GET方式向URL提交数据并获取返回结果（参数放在Map中）
+* get(String url, Map<String, String> header, Map<String, String> param) throws IOException
 
-```
-	参数：
-		url		服务器地址
-		param	  参数
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
-```
+* post(String url, Map<String, String> header, Map<String, String> params) throws IOException
 
-* doPostByUrl(String url, String param) POST方式向URL提交数据并获取返回结果（常用）
-```
-	参数：
-		url		服务器地址
-		param	  参数
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
-```
+* put(String url, Map<String, String> header, Map<String, String> param) throws IOException
 
-* doPostJsonByUrl(String url, String param) POST方式向URL提交数据并获取返回结果（json）
-```
-	参数：
-		url		服务器地址
-		param	  参数
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
-```
-
-* doPostByUrl(String url, Map<String, String> header, String param, int connTime, int readTime, boolean isCaChes) POST方式向URL提交数据并获取返回结果（自定义属性）
-```
-	参数：
-		header	  header属性设置
-		param	   参数
-		connTime	链接超时时间
-		readTime	读取超时时间
-		isCaChes	是否使用缓存
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
-```
-
-* doGetByUrl(String url, Map<String, String> header, Map<String, String> param, int connTime, int readTime, boolean isCaChes) GET方式向URL提交数据并获取返回结果（自定义属性）
-```
-	参数：
-		header	  header属性设置
-		param	   参数
-		connTime	链接超时时间
-		readTime	读取超时时间
-		isCaChes	是否使用缓存
-	返回：
-		(String)服务器数据
-	异常：
-		IOException
-```
-
-# 7、RequestUtil
+* delete(String url, Map<String, String> header, Map<String, String> param) throws IOException
+							  
+### 7、RequestUtil
 
 	请求信息工具类。
 
@@ -195,12 +142,12 @@
 ```
 * getPostData(HttpServletRequest request) 获取POST提交的数据
 
-# 8、StringUtil
+### 8、StringUtil
 	尽管很多提供了判断字符串是否为空的方法，但作为框架，我们也为你提供。
 
 * isNullStr(String str) 判断字符串是否为空
 
-# 9、Utils
+### 9、Utils
 
 	工具类。
 
@@ -239,14 +186,14 @@
 
 * String getUUID() 获取UUID（32）
 
-# 10、Base64
+### 10、Base64
 
 	作者（@author Josh Bloch）如是说：
 
 	Static methods for translating Base64 encoded strings to byte arrays and vice-versa.
 
 
-# 11、RSAUtil
+### 11、RSAUtil
 
 	RSA非对称加密算法工具类。
 
@@ -284,7 +231,7 @@
 
 * privateKeyDecrypt(String key, String cipherText) 私钥解密
 
-# 12、IReturnCode
+### 12、IReturnCode
 
 	返回码接口。
 
@@ -296,7 +243,7 @@
 
 * getMsg() 返回码说明
 
-# 13、Result
+### 13、Result
 
 	封装接口返回数据。
 
@@ -308,15 +255,15 @@
 
 * setData(IReturnCode iReturnCode, Object data) 返回数据
 
-# 14、SafeUtil
+### 14、SafeUtil
 * SHA1(String plainText)  SHA1加密
 
 * String MD5(String plainText) MD5加密
 
-# 15、HexUtil
+### 15、HexUtil
 * _2_16(byte[] bytes)   二进制转十六进制
 
-# 16、TimeUtil
+### 16、TimeUtil
 * longTime(String time) 距离现在多久，语义化
 ```
 参数：格式(yyyy-MM-dd HH:mm:ss)
@@ -325,4 +272,47 @@
 * longTime(long time) 距离现在多久，语义化
 ```
 参数：格式(毫秒数)
+```
+
+### 17、ICallback
+
+```
+回调接口
+```
+* void onSuccess(T t);
+
+* void onFail(String msg);
+
+你可以这样使用它：
+```
+public void getData(ICallBack<String> callBack) {
+	callBack.onSuccess("Success");
+	callBack.onFail("Fail");
+}
+
+getData(new ICallBack<String>() {
+	@Override
+	public void onSuccess(String s) {
+
+	}
+	@Override
+	public void onFail(String msg) {
+
+	}
+}
+```
+
+如果你需要更多的回调内容，你可以继承它：
+```
+public interface INetCallback<S, T> extends ICallback<T> {
+
+    // 加载之前
+    void before();
+
+    // 加载多少
+    void loading(int progress, int max);
+
+    // more ...
+    void m(S s);
+}
 ```

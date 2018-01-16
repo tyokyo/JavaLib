@@ -12,14 +12,14 @@ public interface Constant {
     String DEFAULT_CHATSET = "UTF-8";
 
     /**
-     * 连接超时时间
+     * 连接超时时间（1分钟）
      */
-    int DEFAULT_CONN_TIMEOUT = 5000;
+    int DEFAULT_CONN_TIMEOUT = 1000 * 60;
 
     /**
-     * 读取超时时间
+     * 读取超时时间（10分钟）
      */
-    int DEFAULT_READ_TIMEOUT = 5000;
+    int DEFAULT_READ_TIMEOUT = 1000 * 60 * 10;
 
     /**
      * get
@@ -30,6 +30,16 @@ public interface Constant {
      * post
      */
     String RequestMethodPost = "POST";
+
+    /**
+     * put
+     */
+    String RequestMethodPut = "PUT";
+
+    /**
+     * delete
+     */
+    String RequestMethodDelete = "DELETE";
 
     /**
      * 获取ip地址的信息的uri
