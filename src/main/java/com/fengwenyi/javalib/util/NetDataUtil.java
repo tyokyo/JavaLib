@@ -2,13 +2,11 @@ package com.fengwenyi.javalib.util;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-10-26 16:53
+ * @author Wenyi Feng
  */
 public class NetDataUtil {
 
@@ -29,13 +27,10 @@ public class NetDataUtil {
                              Map<String, String> header,
                              Map<String, String> param) throws IOException {
 
-        StringBuilder stringBuilder = new StringBuilder(url).append("?");
         // 参数
         if (param != null) {
-            stringBuilder.append(Utils.getUrlParamsByMap(param));
+            url += "?" + Utils.getUrlParamsByMap(param);
         }
-        // 截取 ?/&
-        url = stringBuilder.substring(0, stringBuilder.length() - 1);
 
         HttpURLConnection httpUrlConn = httpUrlConn(url);
         httpUrlConn.setDoInput(true);
@@ -108,6 +103,7 @@ public class NetDataUtil {
         url = stringBuilder.substring(0, stringBuilder.length() - 1);
 
         HttpURLConnection httpUrlConn = httpUrlConn(url);
+        httpUrlConn.setRequestMethod(Constant.RequestMethodPut);
         httpUrlConn.setRequestProperty("Content-Type",  "application/x-www-form-urlencoded");
         // header
         if (header != null) {
@@ -145,7 +141,9 @@ public class NetDataUtil {
         httpUrlConn.setRequestMethod(Constant.RequestMethodDelete);
         httpUrlConn.setRequestProperty("Content-Type",  "application/x-www-form-urlencoded");
         // header
-        header(header, httpUrlConn);
+        if (header != null) {
+            header(header, httpUrlConn);
+        }
 
         httpUrlConn.connect();
 
@@ -177,9 +175,8 @@ public class NetDataUtil {
     // 读取代码段
     private static String readIO(HttpURLConnection httpUrlConn) throws IOException {
         BufferedReader bufferedReader
-                = new BufferedReader(
-                new InputStreamReader(httpUrlConn.getInputStream(),
-                        Constant.DEFAULT_CHATSET));
+                = new BufferedReader(new InputStreamReader(httpUrlConn.getInputStream(),
+                                                           Constant.DEFAULT_CHATSET));
         String line;
         StringBuilder stringBuilder = new StringBuilder();
         while ((line = bufferedReader.readLine()) != null) {

@@ -13,8 +13,7 @@ import java.util.UUID;
 import static com.fengwenyi.javalib.util.Constant.IP_INFO_URI;
 
 /**
- * Wenyi Feng(xfsy_2015@163.com)
- * 2017-12-07 13:45
+ * @author Wenyi Feng
  */
 public class Utils {
 
@@ -28,11 +27,9 @@ public class Utils {
      * @throws UnsupportedEncodingException 异常
      */
     public static String getUrlParamsByMap(Map<String, String> data) throws UnsupportedEncodingException {
-
         if (data == null || data.isEmpty()) return null;
 
         StringBuilder sb = new StringBuilder();
-
         for (Map.Entry i : data.entrySet()) {
 
             sb
@@ -42,8 +39,9 @@ public class Utils {
                     .append("&");
 
         }
+        String str = sb.toString();
 
-        return sb.toString();
+        return str.substring(0, str.length() - 1);
     }
 
     /**
