@@ -1,20 +1,15 @@
 package com.fengwenyi.javalib.util;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
+import java.net.URLDecoder;
 import java.net.UnknownHostException;
 
-import static com.fengwenyi.javalib.util.Constant.*;
-
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-09-28 11:08
+ * @author Wenyi Feng
  */
 public class RequestUtil {
 
@@ -74,7 +69,12 @@ public class RequestUtil {
     }
 
     /**
-     * 获取POST提交的数据
+     * 如果客户端通过 request 传递数据，那么就可以使用该方法获取数据
+     * 这种通常是通过 Post方式
+     * @param request HttpServletRequest
+     * @return 客户端上传的数据
+     * @throws IOException 因为是通过IO流读取数据，
+     *         因此很可能读取失败，或者NULL，导致抛出IO异常，
      */
     public static String getPostData(HttpServletRequest request) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
@@ -83,6 +83,6 @@ public class RequestUtil {
         while ((line = br.readLine()) != null) {
             sb.append(line);
         }
-        return sb.toString();
+        return URLDecoder.decode(sb.toString(), Constant.DEFAULT_CHATSET);
     }
 }
