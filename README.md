@@ -52,11 +52,11 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.fengwenyi</groupId>
 	    <artifactId>JavaLib</artifactId>
-	    <version>0.0.5</version>
+	    <version>0.0.6</version>
 	</dependency>
 ```
 
-温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.5
+温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.6
 
 作者当前开发环境为 `Java 9` ，String Boot 版本为 `2.0.0 M7`，在demo_javalib中 `pom.xml` 添加如下代码
 ```
