@@ -3,14 +3,14 @@ package com.fengwenyi.javalib.util;
 import java.util.Random;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-09-29 09:59
+ * 数学工具类
+ * @author Wenyi Feng
  */
 public class MathUtil {
 
     /**
      * 在[0, range)范围内产生一个随机数
-     * @param range
+     * @param range [ellipsis]
      * @return [0, range)范围内的随机数
      */
     public static double randomNum(int range) {

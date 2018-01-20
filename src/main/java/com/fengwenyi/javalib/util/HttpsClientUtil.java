@@ -20,8 +20,10 @@ import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.util.EntityUtils;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-10-26 17:05
+ * Https请求。
+ * 虽然Java 9开始支持Https请求，但据调查目前还没有上线项目
+ * 或者说不多，所以如果你的jdk版本小于9，你可以参考该类
+ * @author Wenyi Feng
  */
 public class HttpsClientUtil {
 
@@ -35,9 +37,9 @@ public class HttpsClientUtil {
      *
      * @return 获取服务器数据
      *
-     * @throws KeyManagementException
-     * @throws NoSuchAlgorithmException
-     * @throws IOException
+     * @throws KeyManagementException [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws IOException [ellipsis]
      */
     public static String doPost(String url, Map<String, String> header, Map<String, String> param)
             throws KeyManagementException, NoSuchAlgorithmException, IOException {
@@ -82,9 +84,9 @@ public class HttpsClientUtil {
      *
      * @return 服务器数据
      *
-     * @throws KeyManagementException
-     * @throws NoSuchAlgorithmException
-     * @throws IOException
+     * @throws KeyManagementException [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws IOException [ellipsis]
      */
     public static String doPost(String url, Map<String, String> header, String param) throws KeyManagementException,
             NoSuchAlgorithmException, IOException {

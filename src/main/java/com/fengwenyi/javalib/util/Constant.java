@@ -1,8 +1,12 @@
 package com.fengwenyi.javalib.util;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-09-28 14:32
+ * 常量类（接口）
+ * <p>
+ *     我个人比较喜欢把一些常量封装在一起，
+ *     当然你可以通过静态变量的方式
+ * </p>
+ * @author Wenyi Feng
  */
 public interface Constant {
 

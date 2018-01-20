@@ -14,17 +14,23 @@ import java.security.spec.X509EncodedKeySpec;
 
 /**
  *
- * NoSuchAlgorithmException：无此加密算法
- * InvalidKeyException：非法密钥
- * NoSuchPaddingException：无明文数据
- * BadPaddingException：明文数据损坏
- * UnsupportedEncodingException：不支持的编码
- * InvalidKeySpecException：密文格式不正确
- * IllegalBlockSizeException：密文长度非法
  *
- * Wenyi Feng(xfsy_2015@163.com)
+ *
+ * @author Wenyi Feng(xfsy_2015@163.com)
  */
 public class RSAUtil {
+
+    /*
+    // 这里面有很多异常，都交给使用者自行处理，
+    // 可能你并不了解这么多的异常，那么这里可能会帮助到你
+    NoSuchAlgorithmException：无此加密算法
+    InvalidKeyException：非法密钥
+    NoSuchPaddingException：无明文数据
+    BadPaddingException：明文数据损坏
+    UnsupportedEncodingException：不支持的编码
+    InvalidKeySpecException：密文格式不正确
+    IllegalBlockSizeException：密文长度非法
+    */
 
     private static final String RSA = "RSA";
     private static int LENGTH = 512;
@@ -32,9 +38,8 @@ public class RSAUtil {
     /**
      * 获取密钥
      * @param keySize 64的整数倍
-     * @return 数组
-     *         [0]=>privateKey
-     *         [1]=>publicKey
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @return 默认先私钥后公钥
      */
     public static String[] getKey(int keySize) throws NoSuchAlgorithmException {
         LENGTH = keySize;
@@ -43,9 +48,8 @@ public class RSAUtil {
 
     /**
      * 获取密钥
-     * @return 数组
-     *         [0]=>privateKey
-     *         [1]=>publicKey
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @return 默认先私钥后公钥
      */
     public static String[] getKey() throws NoSuchAlgorithmException {
        return commonKey(LENGTH);
@@ -53,6 +57,16 @@ public class RSAUtil {
 
     /**
      * 私钥加密
+     * @param key [ellipsis]
+     * @param plainText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws InvalidKeySpecException [ellipsis]
+     * @throws NoSuchPaddingException [ellipsis]
+     * @throws UnsupportedEncodingException [ellipsis]
+     * @throws BadPaddingException [ellipsis]
+     * @throws IllegalBlockSizeException [ellipsis]
+     * @throws InvalidKeyException [ellipsis]
      */
     public static String privateKeyEncrypt(String key, String plainText) throws NoSuchAlgorithmException,
             InvalidKeySpecException, NoSuchPaddingException, UnsupportedEncodingException, BadPaddingException,
@@ -67,6 +81,15 @@ public class RSAUtil {
 
     /**
      * 公钥解密
+     * @param key [ellipsis]
+     * @param cipherText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws InvalidKeySpecException [ellipsis]
+     * @throws NoSuchPaddingException [ellipsis]
+     * @throws InvalidKeyException [ellipsis]
+     * @throws BadPaddingException [ellipsis]
+     * @throws IllegalBlockSizeException [ellipsis]
      */
     public static String publicKeyDecrypt(String key, String cipherText) throws NoSuchAlgorithmException,
             InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException,
@@ -81,6 +104,16 @@ public class RSAUtil {
 
     /**
      * 公钥加密
+     * @param key [ellipsis]
+     * @param plainText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws InvalidKeySpecException [ellipsis]
+     * @throws NoSuchPaddingException [ellipsis]
+     * @throws InvalidKeyException [ellipsis]
+     * @throws BadPaddingException [ellipsis]
+     * @throws IllegalBlockSizeException [ellipsis]
+     * @throws UnsupportedEncodingException [ellipsis]
      */
     public static String publicKeyEncrypt(String key, String plainText) throws NoSuchAlgorithmException,
             InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException,
@@ -96,10 +129,18 @@ public class RSAUtil {
 
     /**
      * 私钥解密
+     * @param key [ellipsis]
+     * @param cipherText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
+     * @throws InvalidKeySpecException [ellipsis]
+     * @throws NoSuchPaddingException [ellipsis]
+     * @throws InvalidKeyException [ellipsis]
+     * @throws BadPaddingException [ellipsis]
+     * @throws IllegalBlockSizeException [ellipsis]
      */
     public static String privateKeyDecrypt(String key, String cipherText) throws NoSuchAlgorithmException,
-            InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, UnsupportedEncodingException,
-            BadPaddingException, IllegalBlockSizeException {
+            InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         PrivateKey privateKey = commonGetPrivatekeyByText(key);
         Cipher cipher = Cipher.getInstance(RSA);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -108,9 +149,7 @@ public class RSAUtil {
         return new String(result);
     }
 
-    /**
-     * (common)获取密钥
-     */
+    // (common)获取密钥
     private static String[] commonKey(int size) throws NoSuchAlgorithmException {
         String [] keys = new String[2];
 
@@ -128,9 +167,7 @@ public class RSAUtil {
         return keys;
     }
 
-    /**
-     * (common)通过公钥文本获取公钥
-     */
+    // (common)通过公钥文本获取公钥
     private static PublicKey commonGetPublickeyByText(String keyText)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] keyBytes = Base64.base64ToByteArray(keyText);
@@ -139,9 +176,7 @@ public class RSAUtil {
         return keyFactory.generatePublic(x509KeySpec);
     }
 
-    /**
-     * (common)通过私钥文本获取私钥
-     */
+    // (common)通过私钥文本获取私钥
     private static PrivateKey commonGetPrivatekeyByText(String keyText)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] keyBytes = Base64.base64ToByteArray(keyText);
@@ -150,4 +185,59 @@ public class RSAUtil {
         return keyFactory.generatePrivate(pkcs8EncodedKeySpec);
     }
 
+    /**
+     * 签名
+     * @param content 待签名内容
+     * @param algorithm 签名算法
+     * @param privateKey 私钥
+     * @param charset 签名内容为中文时，你可能需要指定编码
+     * @return 签名(String)
+     * @throws NoSuchAlgorithmException 签名算法异常
+     * @throws InvalidKeySpecException 密钥格式不正确
+     * @throws InvalidKeyException 密钥异常
+     * @throws SignatureException 签名异常
+     * @throws UnsupportedEncodingException 可能你指定的编码不能正确读取你要签名的内容
+     */
+    public static String sign(String content, String algorithm, String privateKey, String charset)
+            throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException,
+            UnsupportedEncodingException {
+        Signature signTool = Signature.getInstance(algorithm);
+        PrivateKey key = commonGetPrivatekeyByText(privateKey);
+        signTool.initSign(key);
+        if (StringUtil.isNullStr(charset)) {
+            signTool.update(content.getBytes());
+        } else {
+            signTool.update(content.getBytes(charset));
+        }
+        byte[] signBytes = signTool.sign();
+        return Base64.byteArrayToAltBase64(signBytes);
+    }
+
+    /**
+     * 验证签名
+     * @param content 签名的内容
+     * @param signature 签名
+     * @param algorithm 签名算法
+     * @param publicKey 公钥
+     * @param charset 当签名内容为中文时，你可能需要指定编码
+     * @return 该签名是否和内容匹配
+     * @throws NoSuchAlgorithmException 签名算法异常
+     * @throws InvalidKeySpecException 密钥格式不正确
+     * @throws InvalidKeyException 密钥异常
+     * @throws SignatureException 签名异常
+     * @throws UnsupportedEncodingException 可能你指定的编码不能正确读取你要签名的内容
+     */
+    public static boolean verify(String content, String signature, String algorithm, String publicKey, String charset)
+            throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException,
+            UnsupportedEncodingException {
+        Signature signTool = Signature.getInstance(algorithm);
+        PublicKey key = commonGetPublickeyByText(publicKey);
+        signTool.initVerify(key);
+        if (StringUtil.isNullStr(charset)) {
+            signTool.update(content.getBytes());
+        } else {
+            signTool.update(content.getBytes(charset));
+        }
+        return signTool.verify(Base64.altBase64ToByteArray(signature));
+    }
 }

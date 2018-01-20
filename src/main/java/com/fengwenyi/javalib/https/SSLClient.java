@@ -17,8 +17,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-10-26 16:56
+ * 当你并不满足{HttpsClientUtil}时，你可以使用通过该类，实现{Https}请求
+ * @author Wenyi Feng
  */
 public class SSLClient extends DefaultHttpClient {
 

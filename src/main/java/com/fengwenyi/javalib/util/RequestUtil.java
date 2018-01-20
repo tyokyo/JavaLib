@@ -9,6 +9,7 @@ import java.net.URLDecoder;
 import java.net.UnknownHostException;
 
 /**
+ * 你可能想从{HttpServletRequest}获取一些信息
  * @author Wenyi Feng
  */
 public class RequestUtil {
@@ -40,7 +41,7 @@ public class RequestUtil {
      * @return ip地址
      * 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
      *
-     * @throws UnknownHostException
+     * @throws UnknownHostException [ellipsis]
      */
     public static String getRequestIp(HttpServletRequest request) throws UnknownHostException {
         String ip = request.getHeader("x-forwarded-for");

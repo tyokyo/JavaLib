@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.Map;
 
 /**
+ * 网络访问工具类
+ * 支持Get/Post/Put/Delte
  * @author Wenyi Feng
  */
 public class NetDataUtil {
@@ -116,7 +118,7 @@ public class NetDataUtil {
     }
 
     /**
-     * 通过 Get 方式请求数据
+     * 通过 Delete 方式请求数据
      * @param url    URL的字符串，或者将URL和Param拼接之后的字符串
      * @param header 请求的属性，也叫请求头
      * @param param  在参数过多的时候，可能你更喜欢用 Map 来进行保存你的参数

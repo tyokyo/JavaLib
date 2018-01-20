@@ -1,92 +1,48 @@
-写在前面的话
+# JavaLib
 
-```
-	作者是一个Java新手，不足之处，还请指正。
-```
+很多人都会关注以下几个问题：
 
-# JavaLib Intro
+Q：JavaLib到底是什么？
+A：其实我在写作之初就已经说得很明白了，这个是收集Java工具的类。
 
+Q：JavaLib可以在项目中使用吗？
+A：诚然，我是不推荐这么做的。
 
-### List
-
-| 类名                     | 说明|
-| ---                      | ---|
-|SSLClient                 | Http(s)对象类|
-|Constant                  | 常量接口|
-|FileUtil                  | 文件工具类|
-|HttpsClientUtil           | Http(s)数据请求工具类|
-|MathUtil                  | 数学工具类|
-|NetDataUtil               | 网络数据请求工具类|
-|RequestUtil               | 请求工具类|
-|StringUtil                | String工具类|
-|Utils                     | 工具类|
-|Base64                    | @author Josh Bloch|
-|RSAUtil                   | RSA非对称加密算法工具类|
-|IReturnCode               | 返回码接口|
-|Result                    | 接口返回数据封装类|
-|SafeUtil                  | 安全工具类|
-|HexUtil                   | 进制转换工具|
-|TimeUtil                  | 时间工具类|
-|ICallback                  | 回调接口|
-
-[============================================================================]
+Q：有人用吗？
+A：我要做的就是保证每个方法都正确。
 
 ### Start
 
-在 `pom.xml` 文件中添加下面两段代码：
+从21版本开始，jar、pom、doc都托管的[中央仓库](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.fengwenyi%22)，所以，你可以通过中央仓库实现依赖。
 
-Step 1. Add the repository
+由于其他仓库（如阿里云Maven仓库）同步的时间比较慢，如果你的Maven仓库地址修改过的话，可能依赖失败。
 
-```
-	<repositories>
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-````
+JavaLib的一些依赖信息：
 
-Step 2. Add the dependency
+|  GroupId  | com.fengwenyi|
+|   :---:   | :---:|
+| ArtifactId| JavaLib|
+|  Version  | 0.0.8|
 
 ```
-	<dependency>
-	    <groupId>com.github.fengwenyi</groupId>
-	    <artifactId>JavaLib</artifactId>
-	    <version>0.0.6</version>
-	</dependency>
+<dependency>
+    <groupId>com.fengwenyi</groupId>
+    <artifactId>JavaLib</artifactId>
+    <version>0.0.8</version>
+</dependency>
 ```
 
-温馨提示：更多依赖方式，请参见：https://jitpack.io/#fengwenyi/JavaLib/0.0.6
-
-作者当前开发环境为 `Java 9` ，String Boot 版本为 `2.0.0 M7`，在demo_javalib中 `pom.xml` 添加如下代码
-```
-	<dependencies>
-		...
-
-		<dependency>
-			<groupId>com.github.fengwenyi</groupId>
-			<artifactId>JavaLib</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-
-		...
-	</repositories>
-```
+更多信息（其他依赖方式/jar/doc/source），请到中央仓库查询。
 
 [============================================================================]
 
 ### API
 
-* 点击查看[API文档](https://github.com/fengwenyi/JavaLib/blob/master/API.md)
+* API.md 只适用于 20 版本，从 21 版本（版本号为 0.0.8）开始，请使用JavaLib-doc
 
-* 依赖
+* [JavaLib-doc](https://javalib-doc.fengwenyi.com)
+
+* JavaLib中用到以下依赖：
 
 |groupId                   |artifactId           |version  |
 |:----                     |:---:                 |:---:     |
@@ -180,6 +136,13 @@ Step 2. Add the dependency
 	3、跳转版本更新显示
 ```
 
+● 第 21 版【日期：2018年1月20日，版本号：0.0.8】
+
+```
+	1、托管到中央仓库，配有doc文档，源码
+	2、增加RSA签名与验证
+```
+
 
 [============================================================================]
 
@@ -187,5 +150,5 @@ Step 2. Add the dependency
 ### About
 
 ```
-	 ©2018 Wenyi Feng
+	 ©author Wenyi Feng
 ```

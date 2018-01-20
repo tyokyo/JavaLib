@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-09-26 16:21
+ * 文件工具类
+ * @author Wenyi Feng
  */
 
 public class FileUtil {

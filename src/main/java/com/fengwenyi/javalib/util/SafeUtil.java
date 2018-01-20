@@ -4,12 +4,16 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
+ * Safe 加密
  * @author Wenyi Feng.
  */
 public class SafeUtil {
 
     /**
      * 字符串 SHA 加密
+     * @param plainText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
      */
     public static String SHA1(String plainText) throws NoSuchAlgorithmException {
         // 返回值
@@ -41,6 +45,9 @@ public class SafeUtil {
 
     /**
      * MD5加密
+     * @param plainText [ellipsis]
+     * @return [ellipsis]
+     * @throws NoSuchAlgorithmException [ellipsis]
      */
     public static String MD5(String plainText) throws NoSuchAlgorithmException {
         // 创建一个md5算法对象

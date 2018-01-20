@@ -1,12 +1,15 @@
 package com.fengwenyi.javalib.util;
 
 /**
+ * 进制转换工具类
  * @author Wenyi Feng.
  */
 public class HexUtil {
 
     /**
      * 二进制转十六进制
+     * @param bytes [ellipsis]
+     * @return [ellipsis]
      */
     public static String _2_16(byte[] bytes) {
         StringBuilder hexStr = new StringBuilder();

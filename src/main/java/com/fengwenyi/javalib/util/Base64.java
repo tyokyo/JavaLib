@@ -26,6 +26,8 @@ public class Base64 {
 
     /**
      * Translates the specified byte array into a Base64 string as per Preferences.put(byte[]).
+     * @param a [ellipsis]
+     * @return [ellipsis]
      */
     public static String byteArrayToBase64(byte[] a) {
         return byteArrayToBase64(a, false);
@@ -35,11 +37,19 @@ public class Base64 {
      * Translates the specified byte array into an "alternate representation" Base64 string. This non-standard variant
      * uses an alphabet that does not contain the uppercase alphabetic characters, which makes it suitable for use in
      * situations where case-folding occurs.
+     * @param a [ellipsis]
+     * @return [ellipsis]
      */
     public static String byteArrayToAltBase64(byte[] a) {
         return byteArrayToBase64(a, true);
     }
 
+    /**
+     *
+     * @param a [ellipsis]
+     * @param alternate [ellipsis]
+     * @return [ellipsis]
+     */
     private static String byteArrayToBase64(byte[] a, boolean alternate) {
         int aLen = a.length;
         int numFullGroups = aLen / 3;
@@ -102,6 +112,8 @@ public class Base64 {
 
     /**
      * Translates the specified Base64 string (as per Preferences.get(byte[])) into a byte array.
+     * @param s [ellipsis]
+     * @return [ellipsis]
      */
     public static byte[] base64ToByteArray(String s) {
         return base64ToByteArray(s, false);
@@ -109,11 +121,19 @@ public class Base64 {
 
     /**
      * Translates the specified "alternate representation" Base64 string into a byte array.
+     * @param s [ellipsis]
+     * @return [ellipsis]
      */
     public static byte[] altBase64ToByteArray(String s) {
         return base64ToByteArray(s, true);
     }
 
+    /**
+     * Translates the specified "alternate representation" Base64 string into a byte array.
+     * @param s [ellipsis]
+     * @param alternate [ellipsis]
+     * @return [ellipsis]
+     */
     private static byte[] base64ToByteArray(String s, boolean alternate) {
         byte[] alphaToInt = (alternate ? altBase64ToInt : base64ToInt);
         int sLen = s.length();
@@ -167,6 +187,9 @@ public class Base64 {
      * positive integer.
      *
      * @throw IllegalArgumentException or ArrayOutOfBoundsException if c is not in the Base64 Alphabet.
+     * @param c [ellipsis]
+     * @param alphaToInt [ellipsis]
+     * @return [ellipsis]
      */
     private static int base64toInt(char c, byte[] alphaToInt) {
         int result = alphaToInt[c];

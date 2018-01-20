@@ -13,6 +13,8 @@ import java.util.UUID;
 import static com.fengwenyi.javalib.util.Constant.IP_INFO_URI;
 
 /**
+ * 常用工具类
+ * 也许我并不知道有一些属于哪一类
  * @author Wenyi Feng
  */
 public class Utils {
@@ -46,7 +48,7 @@ public class Utils {
 
     /**
      * 将url参数转换成map
-     * @param  param 如：aa=11&bb=22&cc=33
+     * @param  param [ellipsis]
      * @return 参数Map
      */
     public static Map<String, String> getUrlParams(String param) {
@@ -95,7 +97,8 @@ public class Utils {
     }
 
     /**
-     * UUID
+     *
+     * @return UUID
      */
     public static String getUUID() {
         String uuIdStr = UUID.randomUUID().toString();

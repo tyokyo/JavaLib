@@ -1,15 +1,15 @@
 package com.fengwenyi.javalib.util;
 
 /**
- * Wenyi Feng(xfsy_2015@163.com)
- * 2017-12-07 13:50
+ * String 字符串
+ * @author Wenyi Feng
  */
 public class StringUtil {
 
     /**
      * 判断字符串是否为空
-     * @param str
-     * @return
+     * @param str [ellipsis]
+     * @return [ellipsis]
      */
     public static boolean isNullStr(String str) {
 

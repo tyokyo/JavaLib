@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Wenyi Feng(xfsy2014@gmail.com)
- * 2017-11-15 11:45
+ * Time
+ * @author Wenyi Feng
  */
 public class TimeUtil {
 
@@ -58,6 +58,9 @@ public class TimeUtil {
 
     /**
      * 距离现在多久，语义化(yyyy-MM-dd HH:mm:ss)
+     * @param time [ellipsis]
+     * @return [ellipsis]
+     * @throws ParseException [ellipsis]
      */
     public String longTime(String time) throws ParseException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//指定时间格式
@@ -68,6 +71,8 @@ public class TimeUtil {
 
     /**
      * 距离现在多久，语义化(毫秒数)
+     * @param time [ellipsis]
+     * @return [ellipsis]
      */
     public String longTime(long time) {
         return CalculateTime(time);

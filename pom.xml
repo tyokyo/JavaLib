@@ -6,7 +6,37 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>JavaLib</artifactId>
-    <version>171224.17</version>
+    <version>0.0.8</version>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/fengwenyi/JavaLib</url>
+        <connection>git@github.com:fengwenyi/JavaLib.git</connection>
+        <developerConnection>https://github.com/fengwenyi/JavaLib</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Wenyi Feng</name>
+            <email>xfsy_2015@163.com</email>
+            <url>https://www.fengwenyi.com</url>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springversion>4.3.3.RELEASE</springversion>
+    </properties>
 
 
     <build>
@@ -20,6 +50,13 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!--<extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>3.0.0</version>
+            </extension>
+        </extensions>-->
     </build>
 
     <dependencies>
