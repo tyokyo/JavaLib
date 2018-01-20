@@ -43,7 +43,7 @@ JavaLib的一些依赖信息：
 
 * API.md 只适用于 20 版本，从 21 版本（版本号为 0.0.8）开始，请使用JavaLib-doc
 
-* [JavaLib-doc](https://javalib-doc.fengwenyi.com)
+* [JavaLib-doc](http://javalib-doc.fengwenyi.com)
 
 * JavaLib中用到以下依赖：
 
