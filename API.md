@@ -1,5 +1,7 @@
 **API**
 
+注意：API.md从第21版（版本号0.0.8）开始，停止更新。详情请查看说明中的 `API` 部分
+
 ![API-20](https://github.com/fengwenyi/JavaLib/blob/master/screenshot/JavaLib-API-20.png)
 
 ### 1、SSLClient

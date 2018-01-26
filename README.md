@@ -1,49 +1,76 @@
 # JavaLib
 
-很多人都会关注以下几个问题：
+### 目录结构
 
-Q：JavaLib到底是什么？
+```
+JavaLib
+├── src
+│   ├── main
+│   │   └── java
+│   │       └──com
+│   │          └── fengwenyi
+│   │              └── javalib
+│   │                  ├── https
+│   │                  │   └── SSLClient                         // SSL Client
+│   │                  ├── jk
+│   │                  │   └── ICallback                         // 回调接口
+│   │                  ├── result
+│   │                  │   ├── IReturnCode                       // 返回码接口
+│   │                  │   └── Result                            // Result
+│   │                  └── util
+│   │                      ├── Base64                            // Base64
+│   │                      ├── Constant                          // 常量接口（值）
+│   │                      ├── FileUtil                          // File 工具类
+│   │                      ├── HexUtil                           // Hex 工具类
+│   │                      ├── HttpsClientUtil                   // Https 请求工具类
+│   │                      ├── HttpUtil                          // Http 请求工具类
+│   │                      ├── MathUtil                          // Math 工具类
+│   │                      ├── RequestUtil                       // Request 工具类
+│   │                      ├── RSAUtil                           // RSA 加密解密签名与验证工具类
+│   │                      ├── SafeUtil                          // Safe 工具类
+│   │                      ├── StringUtil                        // String 工具类
+│   │                      ├── TimeUtil                          // Time 工具类
+│   │                      └── Utils                             // 常用工具类
+│   └── test
+│       └── java
+│           └──com
+│              └── fengwenyi
+│                  └── test
+│                      ├── INetCallback                         // 继承 ICallback
+│                      ├── MyTest                               // Test
+│                      ├── ResultTest                           // Result
+│                      └── TestSign                             // Test RSA 签名与验证
+└── pom.xml                                                     // Maven 配置
 
-A：其实我在写作之初就已经说得很明白了，这个是收集Java工具的类。
+```
 
-Q：JavaLib可以在项目中使用吗？
-
-A：诚然，我是不推荐这么做的。
-
-Q：有人用吗？
-
-A：我要做的就是保证每个方法都正确。
-
-### Start
+### 快速开始
 
 从21版本开始，jar、pom、doc都托管的[中央仓库](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.fengwenyi%22)，所以，你可以通过中央仓库实现依赖。
 
 由于其他仓库（如阿里云Maven仓库）同步的时间比较慢，如果你的Maven仓库地址修改过的话，可能依赖失败。
 
-JavaLib的一些依赖信息：
+依赖信息：
 
 |  GroupId  | com.fengwenyi|
 |   :---:   | :---:|
 | ArtifactId| JavaLib|
-|  Version  | 0.0.8|
+|  Version  | 0.0.9|
 
 ```
 <dependency>
     <groupId>com.fengwenyi</groupId>
     <artifactId>JavaLib</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
 </dependency>
 ```
 
-更多信息（其他依赖方式/jar/doc/source），请到中央仓库查询。
-
-[============================================================================]
 
 ### API
 
 * API.md 只适用于 20 版本，从 21 版本（版本号为 0.0.8）开始，请使用JavaLib-doc
 
-* [JavaLib-doc](http://javalib-doc.fengwenyi.com)
+* [JavaLib-doc](https://javalib-doc.fengwenyi.com)
 
 * JavaLib中用到以下依赖：
 
@@ -55,9 +82,7 @@ JavaLib的一些依赖信息：
 |junit                     |junit                |4.10     |
 
 
-[============================================================================]
-
-### Version
+### 版本更新记录
 
 ● 170927.02
 
@@ -146,11 +171,15 @@ JavaLib的一些依赖信息：
 	2、增加RSA签名与验证
 ```
 
+● 第 22 版【日期：2018年1月27日，版本号：0.0.9】
 
-[============================================================================]
+```
+	1、将NetDataUtil更名为HttpUtil
+```
 
 
-### About
+
+### 关于
 
 ```
 	 ©author Wenyi Feng

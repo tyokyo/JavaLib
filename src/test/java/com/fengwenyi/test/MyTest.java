@@ -1,6 +1,6 @@
 package com.fengwenyi.test;
 
-import com.fengwenyi.javalib.util.NetDataUtil;
+import com.fengwenyi.javalib.util.HttpUtil;
 import com.fengwenyi.javalib.util.RSAUtil;
 import com.fengwenyi.javalib.util.SafeUtil;
 import com.fengwenyi.javalib.util.Utils;
@@ -14,8 +14,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Wenyi Feng(xfsy_2015@163.com)
@@ -112,7 +110,7 @@ public class MyTest {
 
         String rs = null;
         try {
-            rs = NetDataUtil.get(url, null, null);
+            rs = HttpUtil.get(url, null, null);
         } catch (IOException e) {
             e.printStackTrace();
         }
